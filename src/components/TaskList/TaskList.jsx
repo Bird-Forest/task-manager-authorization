@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import {
   BtnDelete,
   Checkbox,
@@ -14,7 +14,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import { BsFillTrash3Fill } from 'react-icons/bs';
-import { toggleCompleted, deleteTask, fetchTasks } from 'redux/operations';
+import { deleteTask, toggleCompleted } from 'redux/tasksSlice';
+// import { toggleCompleted, deleteTask, fetchTasks } from 'redux/operations';
 
 export default function TaskList() {
   const dispatch = useDispatch();
@@ -22,9 +23,9 @@ export default function TaskList() {
   const error = useSelector(selectError);
   const newTasks = useSelector(selectVisibleTasks);
 
-  useEffect(() => {
-    dispatch(fetchTasks());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchTasks());
+  // }, [dispatch]);
 
   const showArr = Array.isArray(newTasks) && newTasks.length;
   return (
@@ -41,7 +42,7 @@ export default function TaskList() {
                 checked={task.completed}
               />
               <TextTask>
-                <p className="text">{task.title}</p>
+                <p className="text">{task.text}</p>
               </TextTask>
               <BtnDelete onClick={() => dispatch(deleteTask(task.id))}>
                 <BsFillTrash3Fill className="icon-delete" />
