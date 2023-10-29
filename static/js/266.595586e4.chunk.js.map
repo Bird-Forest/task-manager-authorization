@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/266.595586e4.chunk.js","mappings":"yMAEe,SAASA,IACtB,OAAO,iCACR,C","sources":["pages/Home.js"],"sourcesContent":["import React from 'react';\n\nexport default function Home() {\n  return <div>Home</div>;\n}\n"],"names":["Home"],"sourceRoot":""}
