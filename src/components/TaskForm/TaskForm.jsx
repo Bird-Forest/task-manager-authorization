@@ -3,7 +3,9 @@ import { BsFillHandIndexThumbFill } from 'react-icons/bs';
 import { BtnForm, FormTask, InputForm } from './TaskForm.styled';
 
 import { useDispatch } from 'react-redux';
-import { addTask } from 'redux/tasksSlice';
+import { addTask } from 'redux/operations';
+// import { addTask } from 'redux/operations';
+// import { addTask } from 'redux/tasksSlice';
 // import { addTask } from 'redux/operations';
 
 export default function TaskForm() {

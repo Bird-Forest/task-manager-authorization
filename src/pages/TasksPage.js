@@ -1,6 +1,6 @@
 // import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 import { selectIsLoading } from 'redux/selectors';
 // import { fetchTasks } from 'redux/operations';
 import TaskForm from 'components/TaskForm/TaskForm';
@@ -17,9 +17,8 @@ export default function TasksPage() {
 
   return (
     <WrapTasksPage>
-      <Helmet>
-        <title>Your tasks</title>
-      </Helmet>
+      <title>Your tasks</title>
+
       <TaskForm />
       <div>{isLoading && 'Request in progress...'}</div>
       <TaskList />

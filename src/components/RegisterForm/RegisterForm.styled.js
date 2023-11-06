@@ -4,7 +4,21 @@ export const WrapRegisterForm = styled.div`
   flex-direction: column;
   gap: 50px;
   margin-top: 100px;
+  .box-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .textField {
+    color: red;
+    height: 50px;
+  }
 `;
+export const TextField = styled.label`
+  color: red;
+  height: 50px;
+`;
+
 export const FormRegister = styled.form`
   display: flex;
   flex-direction: column;
@@ -12,6 +26,7 @@ export const FormRegister = styled.form`
   width: 300px;
   gap: 20px;
   .label-form {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
   }

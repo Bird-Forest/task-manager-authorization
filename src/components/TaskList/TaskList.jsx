@@ -14,8 +14,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import { BsFillTrash3Fill } from 'react-icons/bs';
-import { deleteTask, toggleCompleted } from 'redux/tasksSlice';
-// import { toggleCompleted, deleteTask, fetchTasks } from 'redux/operations';
+import { deleteTask, fetchTasks, toggleCompleted } from 'redux/operations';
+import { useEffect } from 'react';
 
 export default function TaskList() {
   const dispatch = useDispatch();
@@ -23,11 +23,12 @@ export default function TaskList() {
   const error = useSelector(selectError);
   const newTasks = useSelector(selectVisibleTasks);
 
-  // useEffect(() => {
-  //   dispatch(fetchTasks());
-  // }, [dispatch]);
+  useEffect(() => {
+    // if (!newTasks) return;
+    dispatch(fetchTasks());
+  }, [dispatch]);
 
-  const showArr = Array.isArray(newTasks) && newTasks.length;
+  const showArr = Array.isArray(newTasks) && newTasks.length !== 0;
   return (
     <div>
       {isLoading && <p>Loading tasks...</p>}
@@ -42,7 +43,7 @@ export default function TaskList() {
                 checked={task.completed}
               />
               <TextTask>
-                <p className="text">{task.text}</p>
+                <p className="text">{task.title}</p>
               </TextTask>
               <BtnDelete onClick={() => dispatch(deleteTask(task.id))}>
                 <BsFillTrash3Fill className="icon-delete" />
