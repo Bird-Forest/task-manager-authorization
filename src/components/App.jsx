@@ -7,6 +7,9 @@ import { useAuth } from 'hooks';
 // import { refreshUser } from 'redux/operations';
 import { Navigation } from './Navigation/Navigation';
 import { refreshThunk } from 'redux/operations';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
+import { Container } from './App.styled';
 // import Layout from './Layout';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
@@ -16,9 +19,30 @@ const TasksPage = lazy(() => import('../pages/TasksPage'));
 
 const appRoutes = [
   { path: '/', element: <HomePage /> },
-  { path: '/register', element: <RegisterPage /> },
-  { path: '/login', element: <LoginPage /> },
-  { path: '/tasks', element: <TasksPage /> },
+  {
+    path: '/register',
+    element: (
+      <RestrictedRoute>
+        <RegisterPage />
+      </RestrictedRoute>
+    ),
+  },
+  {
+    path: '/login',
+    element: (
+      <RestrictedRoute>
+        <LoginPage />
+      </RestrictedRoute>
+    ),
+  },
+  {
+    path: '/tasks',
+    element: (
+      <PrivateRoute>
+        <TasksPage />
+      </PrivateRoute>
+    ),
+  },
 ];
 
 export const App = () => {
@@ -32,7 +56,7 @@ export const App = () => {
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
-    <div>
+    <Container>
       <Navigation />
       <Suspense fallback={null}>
         <Routes>
@@ -41,7 +65,7 @@ export const App = () => {
           ))}
         </Routes>
       </Suspense>
-    </div>
+    </Container>
   );
 };
 

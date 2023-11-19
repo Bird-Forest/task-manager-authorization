@@ -3,64 +3,64 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // ******************************************************************************
 
-const tasksURL = axios.create({
-  baseURL: 'https://653aaa722e42fd0d54d44bad.mockapi.io/api/v1/',
-});
+// const tasksURL = axios.create({
+//   baseURL: 'https://653aaa722e42fd0d54d44bad.mockapi.io/api/v1/',
+// });
 
-export const fetchTasks = createAsyncThunk(
-  'tasks/fetchAll', // Використовуємо символ підкреслення як ім'я першого параметра,
-  // тому що в цій операції він нам не потрібен ми нічого не передаємо
-  async (_, thunkAPI) => {
-    try {
-      const response = await tasksURL.get('/tasks');
-      // При успішному запиті повертаємо проміс із даними
-      console.log(response.data);
-      return response.data; // ЦЕ БУДЕ ЗАПИСАНО В ЕКШИН ПЕЙЛОАД
-    } catch (e) {
-      // При помилці запиту повертаємо проміс
-      // який буде відхилений з текстом помилки
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
-export const addTask = createAsyncThunk(
-  'tasks/addTask',
-  async (title, thunkAPI) => {
-    try {
-      const response = await axios.post('/tasks', { title });
-      console.log(response.data);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
-export const deleteTask = createAsyncThunk(
-  'tasks/deleteTask',
-  async (taskId, thunkAPI) => {
-    try {
-      const response = await axios.delete(`/tasks/${taskId}`);
-      console.log(response.data);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
-export const toggleCompleted = createAsyncThunk(
-  'tasks/toggleCompleted',
-  async (task, thunkAPI) => {
-    try {
-      const response = await axios.put(`/tasks/${task.id}`, {
-        completed: !task.completed,
-      });
-      console.log(response.data);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
+// export const fetchTasks = createAsyncThunk(
+//   'tasks/fetchAll', // Використовуємо символ підкреслення як ім'я першого параметра,
+//   // тому що в цій операції він нам не потрібен ми нічого не передаємо
+//   async (_, thunkAPI) => {
+//     try {
+//       const response = await tasksURL.get('/tasks');
+//       // При успішному запиті повертаємо проміс із даними
+//       console.log(response.data);
+//       return response.data; // ЦЕ БУДЕ ЗАПИСАНО В ЕКШИН ПЕЙЛОАД
+//     } catch (e) {
+//       // При помилці запиту повертаємо проміс
+//       // який буде відхилений з текстом помилки
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
+// export const addTask = createAsyncThunk(
+//   'tasks/addTask',
+//   async (title, thunkAPI) => {
+//     try {
+//       const response = await tasksURL.post('/tasks', { title });
+//       console.log(response.data);
+//       return response.data;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
+// export const deleteTask = createAsyncThunk(
+//   'tasks/deleteTask',
+//   async (taskId, thunkAPI) => {
+//     try {
+//       const response = await tasksURL.delete(`/tasks/${taskId}`);
+//       console.log(response.data);
+//       return response.data;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
+// export const toggleCompleted = createAsyncThunk(
+//   'tasks/toggleCompleted',
+//   async (task, thunkAPI) => {
+//     try {
+//       const response = await tasksURL.put(`/tasks/${task.id}`, {
+//         completed: !task.completed,
+//       });
+//       console.log(response.data);
+//       return response.data;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
 // *************************************************************************
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
@@ -69,9 +69,9 @@ const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 // Utility to remove JWT
-// const clearAuthHeader = () => {
-//   axios.defaults.headers.common.Authorization = '';
-// };
+const clearAuthHeader = () => {
+  axios.defaults.headers.common.Authorization = '';
+};
 
 export const registerThunk = createAsyncThunk(
   'auth/register',
@@ -121,15 +121,18 @@ export const refreshThunk = createAsyncThunk(
   }
 );
 
-// const logoutUser = async () => {
-//   const { data } = await userURL.post('/users/logout');
-//   return data;
-// };
-
-// const refreshUser = async () => {
-//   const { data } = await userURL.get('auth/current');
-//   return data;
-// };
+export const logoutThunk = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
+    try {
+      await axios.post('/users/logout');
+      // After a successful logout, remove the token from the HTTP header
+      clearAuthHeader();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 // ***********************************************
 // axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';

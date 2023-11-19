@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import { NavMenu } from './Navigation.styled';
-import { Header } from 'components/AppBar/AppBar.styled';
+import { Header, NavMenu } from './Navigation.styled';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/selectors';
+import { UserMenu } from 'components/UserMenu/UserMenu';
+import { AuthNav } from 'components/AuthNav/AuthNav';
 // import { useAuth } from 'hooks';
 
 export const Navigation = () => {
@@ -21,16 +22,17 @@ export const Navigation = () => {
             <NavLink to="/tasks" className="navigate">
               Tasks
             </NavLink>
-            <button>LogOut</button>
+            <UserMenu />
           </>
         ) : (
           <>
-            <NavLink to="/register" className="navigate">
+            {/* <NavLink to="/register" className="navigate">
               Register
             </NavLink>
             <NavLink to="/login" className="navigate">
               Login
-            </NavLink>
+            </NavLink> */}
+            <AuthNav />
           </>
         )}
       </NavMenu>

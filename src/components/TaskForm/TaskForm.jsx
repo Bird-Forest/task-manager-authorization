@@ -1,21 +1,17 @@
 import React from 'react';
-import { BsFillHandIndexThumbFill } from 'react-icons/bs';
+import { FaPenToSquare } from 'react-icons/fa6';
 import { BtnForm, FormTask, InputForm } from './TaskForm.styled';
-
 import { useDispatch } from 'react-redux';
-import { addTask } from 'redux/operations';
-// import { addTask } from 'redux/operations';
-// import { addTask } from 'redux/tasksSlice';
-// import { addTask } from 'redux/operations';
+import { addTask } from 'redux/tasksSlice';
 
 export default function TaskForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
-    const text = event.target.elements.text.value;
-    if (text !== '') {
-      dispatch(addTask(text));
+    const title = event.target.elements.title.value;
+    if (title !== '') {
+      dispatch(addTask(title));
       event.target.reset();
       return;
     }
@@ -23,10 +19,13 @@ export default function TaskForm() {
   };
   return (
     <FormTask onSubmit={handleSubmit}>
-      <InputForm type="text" name="text" placeholder="Enter task text..." />
+      <InputForm type="title" name="title" placeholder="Enter task text..." />
       <BtnForm type="submit">
-        <BsFillHandIndexThumbFill className="icon-add" />
+        <FaPenToSquare className="icon-add" />
       </BtnForm>
     </FormTask>
   );
 }
+// GrEdit
+// FaPenToSquare
+// FaPenToSquare

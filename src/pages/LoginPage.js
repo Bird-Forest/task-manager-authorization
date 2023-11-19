@@ -1,13 +1,12 @@
 import LoginForm from 'components/LoginForm/LoginForm';
 import React from 'react';
-// import { Helmet } from 'react-helmet';
+import { TitleLoginPage, WrapLoginPage } from './Page.styled';
 
 export default function LoginPage() {
   return (
-    <div>
-      <title>Login</title>
-
+    <WrapLoginPage>
+      <TitleLoginPage>Login</TitleLoginPage>
       <LoginForm />
-    </div>
+    </WrapLoginPage>
   );
 }

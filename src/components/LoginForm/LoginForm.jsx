@@ -1,46 +1,45 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useForm } from 'react-hook-form';
-import { WrapRegisterForm } from 'components/RegisterForm/RegisterForm.styled';
+// import { useForm } from 'react-hook-form';
+
 import { loginThunk } from 'redux/operations';
+import { LoginFormWrap } from './LoginForm.styled';
 
 export default function LoginForm() {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
   const dispatch = useDispatch();
 
-  const onSubmit = formData => {
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = {
+      email: form.elements.email.value,
+      password: form.elements.password.value,
+    };
+
     dispatch(loginThunk(formData));
-    reset();
+    form.reset();
   };
 
   return (
-    <WrapRegisterForm>
-      <form onSubmit={handleSubmit(onSubmit)} className="box-form">
-        <label className="textField">
-          Email
-          {/* <span>Email:</span> */}
-          <input {...register('email', { required: true })} type="email" />
-          {errors.email && <span>This field is required</span>}
-        </label>
-
-        <label className="textField">
-          Password
-          {/* <span>:</span> */}
-          <input
-            {...register('password', { required: true, minLength: 7 })}
-            type="password"
-          />
-          {errors.password && <span>This field is required</span>}
-        </label>
-
-        <button type="submit">Sign In</button>
-      </form>
-    </WrapRegisterForm>
+    <LoginFormWrap onSubmit={handleSubmit} autoComplete="off">
+      <input
+        type="email"
+        name="email"
+        placeholder="Email..."
+        className="input-form"
+        required
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password..."
+        className="input-form"
+        required
+      />
+      <button type="submit" className="btn-form">
+        Sign In
+      </button>
+    </LoginFormWrap>
   );
 }
 

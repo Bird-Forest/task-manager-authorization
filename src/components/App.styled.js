@@ -3,43 +3,20 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 360px;
-  gap: 20px;
-  padding: 20px;
-  /* margin: 0 auto; */
-  margin-left: auto;
-  margin-right: auto;
-  @media screen and (min-width: 600px) {
-    width: 600px;
-  }
-`;
-export const TopNavigation = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 20px;
-  min-width: 360px;
-  /* margin-left: auto;
-  margin-right: auto; */
-  padding: 0;
-  margin: 0;
-
-  @media screen and (min-width: 600px) {
-    width: 600px;
+  min-width: 320px;
+  height: 800px;
+  padding: 0 10px;
+  margin: 0 auto;
+  background-color: #e3f2fd;
+  @media screen and (min-width: 380px) {
+    min-width: 380px;
   }
-`;
-export const WrapFormTask = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  min-width: 360px;
-  padding: 0;
-  /* margin-left: auto;
-  margin-right: auto; */
-  @media screen and (min-width: 600px) {
-    width: 600px;
+  @media screen and (min-width: 440px) {
+    min-width: 440px;
+  }
+  @media screen and (min-width: 500px) {
+    width: 500px;
   }
 `;

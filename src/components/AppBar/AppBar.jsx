@@ -1,16 +1,40 @@
-// import { Navigation } from '../Navigation/Navigation';
-// import { UserMenu } from '../UserMenu/UserMenu';
-// import { AuthNav } from '../AuthNav/AuthNav';
-// import { useAuth } from 'hooks';
-// import { Header } from './AppBar.styled';
+// Использование библиотеки React-Responsive: Ты можешь использовать библиотеку React-Responsive, чтобы определить, какой компонент показывать на основе ширины экрана. Вот пример кода:
+// import React from 'react';
+// import Responsive from 'react-responsive';
+// import React, { useState, useEffect } from 'react';
 
-// export const AppBar = () => {
-//   const { isLoggedIn } = useAuth();
+// export function Menu() {
+//   const Mobile = ({ children }) => (
+//     <Responsive maxWidth={767} children={children} />
+//   );
+//   const Tablet = ({ children }) => (
+//     <Responsive minWidth={768} maxWidth={991} children={children} />
+//   );
 
 //   return (
-//     <Header>
-//       <Navigation />
-//       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-//     </Header>
+//     <div>
+//       <Mobile>
+//         <BurgerMenu />
+//       </Mobile>
+//       <Tablet>
+//         <Navigation />
+//       </Tablet>
+//     </div>
 //   );
-// };
+// }
+
+// export function Burger() {
+//   const [isMobile, setIsMobile] = useState(false);
+
+//   useEffect(() => {
+//     function handleResize() {
+//       setIsMobile(window.innerWidth < 768);
+//     }
+
+//     window.addEventListener('resize', handleResize);
+
+//     return () => window.removeEventListener('resize', handleResize);
+//   }, []);
+
+//   return <div>{isMobile ? <BurgerMenu /> : <Navigation />}</div>;
+// }

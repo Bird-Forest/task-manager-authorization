@@ -25,30 +25,57 @@ export const selectVisibleTasks = createSelector(
     console.log('Calculating visible tasks');
 
     switch (statusFilter) {
-      case statusFilters.active:
-        return tasks.filter(task => !task.completed);
-      case statusFilters.completed:
-        return tasks.filter(task => task.completed);
+      case statusFilters.red:
+        return tasks.filter(task => task.color === '#ff5252');
+      case statusFilters.yellow:
+        return tasks.filter(task => task.color === '#ffee58');
+      case statusFilters.green:
+        return tasks.filter(task => task.color === '#00e676');
       default:
         return tasks;
     }
   }
 );
-
 export const selectTaskCount = createSelector([selectTasks], tasks => {
   console.log('Calculating task count. Now memoized!');
   return tasks.reduce(
     (count, task) => {
-      if (task.completed) {
-        count.completed += 1;
-      } else {
-        count.active += 1;
+      if (task.color === '#ff5252') {
+        count.red += 1;
+      } else if (task.color === '#ffee58') {
+        count.yellow += 1;
+      } else if (task.color === '#00e676') {
+        count.green += 1;
       }
       return count;
     },
-    { active: 0, completed: 0 }
+    { red: 0, yellow: 0, green: 0 }
   );
 });
+
+//  switch (statusFilter) {
+//    case statusFilters.active:
+//      return tasks.filter(task => !task.completed);
+//    case statusFilters.completed:
+//      return tasks.filter(task => task.completed);
+//    default:
+//      return tasks;
+//  }
+
+// export const selectTaskCount = createSelector([selectTasks], tasks => {
+//   console.log('Calculating task count. Now memoized!');
+//   return tasks.reduce(
+//     (count, task) => {
+//       if (task.completed) {
+//         count.completed += 1;
+//       } else {
+//         count.active += 1;
+//       }
+//       return count;
+//     },
+//     { active: 0, completed: 0 }
+//   );
+// });
 
 // Мемонізація елементів
 // const selectProductsStore = state => state.productsStore;

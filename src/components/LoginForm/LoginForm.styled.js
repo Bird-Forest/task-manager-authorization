@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const RegisterFormWrap = styled.form`
+export const LoginFormWrap = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,7 +32,6 @@ export const RegisterFormWrap = styled.form`
     font-weight: 700;
     color: white;
     border-radius: 25px;
-    /* min-width: 264px; */
     width: 100%;
     height: 40px;
     background-color: #2196f3;

@@ -18,13 +18,13 @@ import { authReducer } from './authSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'tasks', 'filter'],
   //   blacklist: ['filter'],
 };
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
+    auth: persistReducer(authPersistConfig, authReducer, tasksReducer),
     tasks: tasksReducer,
     filters: filtersReducer,
   },

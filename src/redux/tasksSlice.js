@@ -1,131 +1,79 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { addTask, deleteTask, fetchTasks, toggleCompleted } from './operations';
-// import { fetchTasks, addTask, deleteTask, toggleCompleted } from './operations';
-const tasksInitialState = {
-  tasks: null,
-  isLoading: false,
-  error: null,
-};
-const tasksSlice = createSlice({
-  name: 'tasks',
-  initialState: tasksInitialState,
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 
-  extraReducers: builder =>
-    builder
-      .addCase(fetchTasks.pending, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(fetchTasks.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.tasks = action.payload;
-      })
-      .addCase(fetchTasks.rejected, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(addTask.pending, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(addTask.fulfilled, (state, action) => {
-        state.isLoading = false;
+const tasksData = {
+  tasks: [
+    {
+      color: '#ff5252',
+      title: 'Eum voluptate dolor.',
+      id: '1',
+    },
+    {
+      color: '#ffeb3b',
+      title: 'Temporibus praesentium praesentium nesciunt nisi cumque.',
+      id: '2',
+    },
+    {
+      color: '#00c853',
+      title: 'Nemo ratione rerum.',
+      id: '3',
+    },
+    {
+      color: '#ff5252',
+      title: 'Quam optio quaerat hic eveniet voluptatibus sequi enim.',
+      id: '4',
+    },
+    {
+      color: '#ffeb3b',
+      title:
+        'Cumque beatae fugiat error quisquam vero iusto nesciunt deleniti.',
+      id: '5',
+    },
+    {
+      color: '#ffeb3b',
+      title: 'Dolor sequi architecto voluptatibus.',
+      id: '6',
+    },
+    {
+      color: '#00c853',
+      title: 'Ipsam voluptatem velit et delectus.',
+      id: '7',
+    },
+  ],
+};
+// console.log(tasksData);
+const taskSlice = createSlice({
+  name: 'tasks',
+  initialState: tasksData,
+  reducers: {
+    addTask: {
+      reducer(state, action) {
         state.tasks.push(action.payload);
-        // state.tasks.unshift(action.payload);
-        // state.tasks = [action.payload, ...state.tasks];
-      })
-      .addCase(addTask.rejected, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(deleteTask.pending, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(deleteTask.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.tasks = state.tasks.filter(task => task.id !== action.payload.id);
-      })
-      .addCase(deleteTask.rejected, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(toggleCompleted.pending, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(toggleCompleted.fulfilled, (state, action) => {
-        state.isLoading = false;
-        const index = state.tasks.findIndex(
-          task => task.id === action.payload.id
-        );
-        state.tasks.splice(index, 1, action.payload);
-      })
-      .addCase(toggleCompleted.rejected, state => {
-        state.isLoading = true;
-        state.error = null;
-      }),
+      },
+      prepare(title) {
+        return {
+          payload: {
+            title,
+            id: nanoid(),
+            color: 'white',
+          },
+        };
+      },
+    },
+
+    deleteTask: (state, action) => {
+      state.tasks = state.tasks.filter(task => task.id !== action.payload);
+    },
+
+    changeTaskColor: (state, action) => {
+      state.tasks = state.tasks.map(task => {
+        if (task.id === action.payload.id) {
+          task.color = action.payload.color;
+        }
+        return task;
+      });
+    },
+  },
 });
 
-export const tasksReducer = tasksSlice.reducer;
-
-// const handlePending = state => {
-//   state.isLoading = true;
-// };
-// const handleRejected = (state, action) => {
-//   state.isLoading = false;
-//   state.error = action.payload;
-// };
-
-// const tasksSlice = createSlice({
-//   name: 'tasks',
-//   initialState: {
-//     items: [],
-//     isLoading: false,
-//     error: null,
-//   },
-//   //  Додаємо обробку зовнішніх екшенів
-//   extraReducers: {
-//     // List tasks
-//     [fetchTasks.pending]: handlePending,
-//     [fetchTasks.fulfilled](state, action) {
-//       state.isLoading = false;
-//       state.error = null;
-//       state.items = action.payload;
-//     },
-//     [fetchTasks.rejected]: handleRejected,
-
-//     // Add task
-//     [addTask.pending]: handlePending,
-//     [addTask.fulfilled](state, action) {
-//       state.isLoading = false;
-//       state.error = null;
-//       state.items.push(action.payload);
-//     },
-//     [addTask.rejected]: handleRejected,
-//     // Delete task
-//     [deleteTask.pending]: handlePending,
-//     [deleteTask.fulfilled](state, action) {
-//       state.isLoading = false;
-//       state.error = null;
-//       const index = state.items.findIndex(
-//         task => task.id === action.payload.id
-//       );
-//       state.items.splice(index, 1);
-//     },
-//     [deleteTask.rejected]: handleRejected,
-//     // Toggle completed
-//     [toggleCompleted.pending]: handlePending,
-//     [toggleCompleted.fulfilled](state, action) {
-//       state.isLoading = false;
-//       state.error = null;
-//       const index = state.items.findIndex(
-//         task => task.id === action.payload.id
-//       );
-//       state.items.splice(index, 1, action.payload);
-//     },
-//     [toggleCompleted.rejected]: handleRejected,
-//   },
-// });
-
-// export const tasksReducer = tasksSlice.reducer;
+export const { addTask, deleteTask, changeTaskColor } = taskSlice.actions;
+export const tasksReducer = taskSlice.reducer;

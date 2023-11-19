@@ -6,8 +6,7 @@ import { Navigate } from 'react-router-dom';
  * - Otherwise render the component
  */
 
-export const RestrictedRoute = ({ component: Component, redirectTo = '/' }) => {
+export const RestrictedRoute = ({ children, redirectTo = '/tasks' }) => {
   const { isLoggedIn } = useAuth();
-
-  return isLoggedIn ? <Navigate to={redirectTo} /> : Component;
+  return isLoggedIn ? <Navigate to={redirectTo} replace /> : children;
 };
