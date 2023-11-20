@@ -4,12 +4,7 @@ export const FormTask = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* min-width: 300px; */
-  /* gap: 10px; */
   padding: 0;
-  /* margin: 0 auto; */
-  /* margin-right: auto;
-  margin-left: auto; */
   @media screen and (min-width: 380px) {
     min-width: 360px;
   }
@@ -56,15 +51,6 @@ export const BtnForm = styled.button`
   padding: 0;
   cursor: pointer;
   color: #1769aa;
-  /* -webkit-box-shadow: 0px 5px 6px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 5px 6px 1px rgba(0, 0, 0, 0.75); */
-
-  /* &:hover,
-  :focus {
-    background-color: rgb(77, 106, 255);
-    outline: 3px solid rgb(77, 106, 255);
-    border: 3px solid rgb(77, 106, 255);
-  } */
   .icon-add {
     width: 28px;
     height: 28px;
@@ -74,8 +60,4 @@ export const BtnForm = styled.button`
   .icon-add:focus {
     fill: #1769aa;
   }
-  /* @media screen and (min-width: 600px) {
-    width: 48px;
-    height: 48px;
-  } */
 `;

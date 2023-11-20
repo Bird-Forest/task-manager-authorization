@@ -20,7 +20,6 @@ export const LoginFormWrap = styled.form`
     border: 1px solid #2196f3;
     padding: 0 12px;
     margin: 0 auto;
-
     &::placeholder {
       font-size: 16px;
       color: #64b5f6;

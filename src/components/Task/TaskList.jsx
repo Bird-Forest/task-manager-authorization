@@ -15,7 +15,6 @@ export default function TaskList() {
   const error = useSelector(selectError);
   const newTasks = useSelector(selectVisibleTasks);
 
-  // const newTasks = useSelector(selectTasks);
   console.log(newTasks);
 
   // useEffect(() => {

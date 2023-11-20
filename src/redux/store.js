@@ -18,14 +18,21 @@ import { authReducer } from './authSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'tasks', 'filter'],
+  whitelist: ['token'],
+  //   blacklist: ['filter'],
+};
+
+const tasksPersistConfig = {
+  key: 'tasks',
+  storage,
+  whitelist: ['tasks'],
   //   blacklist: ['filter'],
 };
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer, tasksReducer),
-    tasks: tasksReducer,
+    auth: persistReducer(authPersistConfig, authReducer),
+    tasks: persistReducer(tasksPersistConfig, tasksReducer),
     filters: filtersReducer,
   },
   middleware: getDefaultMiddleware =>

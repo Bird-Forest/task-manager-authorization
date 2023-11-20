@@ -8,12 +8,12 @@ const tasksData = {
       id: '1',
     },
     {
-      color: '#ffeb3b',
+      color: '#ffee58',
       title: 'Temporibus praesentium praesentium nesciunt nisi cumque.',
       id: '2',
     },
     {
-      color: '#00c853',
+      color: '#00e676',
       title: 'Nemo ratione rerum.',
       id: '3',
     },
@@ -23,18 +23,18 @@ const tasksData = {
       id: '4',
     },
     {
-      color: '#ffeb3b',
+      color: '#ffee58',
       title:
         'Cumque beatae fugiat error quisquam vero iusto nesciunt deleniti.',
       id: '5',
     },
     {
-      color: '#ffeb3b',
+      color: '#ffee58',
       title: 'Dolor sequi architecto voluptatibus.',
       id: '6',
     },
     {
-      color: '#00c853',
+      color: '#00e676',
       title: 'Ipsam voluptatem velit et delectus.',
       id: '7',
     },

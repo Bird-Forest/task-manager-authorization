@@ -1,7 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-// import { useForm } from 'react-hook-form';
-
 import { loginThunk } from 'redux/operations';
 import { LoginFormWrap } from './LoginForm.styled';
 
@@ -15,7 +13,6 @@ export default function LoginForm() {
       email: form.elements.email.value,
       password: form.elements.password.value,
     };
-
     dispatch(loginThunk(formData));
     form.reset();
   };
@@ -42,32 +39,3 @@ export default function LoginForm() {
     </LoginFormWrap>
   );
 }
-
-// const dispatch = useDispatch();
-// const handleSubmit = evt => {
-//   evt.preventDefault();
-//   const form = evt.currentTarget;
-//   dispatch(
-//     logIn({
-//       email: form.elements.email.value,
-//       password: form.elements.password.value,
-//     })
-//   );
-//   form.reset();
-// };
-
-// return (
-//   <div>
-//     <form onSubmit={handleSubmit} autoComplete="off">
-//       <label>
-//         Email
-//         <input type="email" name="email" />
-//       </label>
-//       <label>
-//         Password
-//         <input type="password" name="password" />
-//       </label>
-//       <button type="submit">Log In</button>
-//     </form>
-//   </div>
-// );

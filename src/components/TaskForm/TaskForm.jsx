@@ -26,6 +26,3 @@ export default function TaskForm() {
     </FormTask>
   );
 }
-// GrEdit
-// FaPenToSquare
-// FaPenToSquare

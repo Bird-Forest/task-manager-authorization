@@ -14,7 +14,6 @@ import { nanoid } from '@reduxjs/toolkit';
 import { deleteTask, changeTaskColor } from 'redux/tasksSlice';
 import { BsEmojiWink } from 'react-icons/bs';
 import { FaCogs } from 'react-icons/fa';
-// import { AiFillSetting } from 'react-icons/ai';
 
 export default function Task({ task }) {
   const dispatch = useDispatch();
@@ -68,9 +67,3 @@ export default function Task({ task }) {
     </WrapTask>
   );
 }
-
-// BsEmojiWink; import { IconName } from "react-icons/bs";
-// GrSettingsOption; GrEdit  import { IconName } from "react-icons/gr";
-// AiFillSetting;
-
-// FaCogs

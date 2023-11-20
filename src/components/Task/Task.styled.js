@@ -5,10 +5,8 @@ export const WrapList = styled.ul`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  /* min-width: 300px; */
   gap: 8px;
   padding: 0;
-  /* margin: 0 auto; */
   @media screen and (min-width: 380px) {
     min-width: 360px;
   }
@@ -24,7 +22,6 @@ export const WrapTask = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: white; */
   min-width: 290px;
   height: 44px;
   padding: 0;
@@ -86,12 +83,6 @@ export const BtnSetting = styled.button`
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   cursor: pointer;
-  /* 
-  &:hover .SettingTask,
-  &:focus .SettingTask {
-    transform: translate(0, 0);
-    opacity: 1;
-  } */
   .icon-setting {
     width: 28px;
     height: 28px;
@@ -120,7 +111,6 @@ export const SettingTask = styled.div`
   position: absolute;
   transform: translate(0, 0);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  /* opacity: 0; */
   right: 0;
 `;
 
@@ -157,13 +147,6 @@ export const BtnDelete = styled.button`
   height: 40px;
   padding: 0;
   cursor: pointer;
-  /* -webkit-box-shadow: 0px 5px 6px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 5px 6px 1px rgba(0, 0, 0, 0.75); */
-  /* &:hover,
-  :focus {
-    background-color: #1769aa;
-  } */
-
   .icon-delete {
     width: 20px;
     height: 20px;
