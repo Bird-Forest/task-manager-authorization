@@ -6,7 +6,9 @@ export const WrapList = styled.ul`
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
+  width: 100%;
   padding: 0;
+  margin: 0 auto;
   @media screen and (min-width: 380px) {
     min-width: 360px;
   }
@@ -22,19 +24,11 @@ export const WrapTask = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 290px;
+  /* min-width: 300px; */
+  /* width: 100%; */
   height: 44px;
-  padding: 0;
-  margin: 0;
-  @media screen and (min-width: 380px) {
-    min-width: 360px;
-  }
-  @media screen and (min-width: 440px) {
-    min-width: 420px;
-  }
-  @media screen and (min-width: 500px) {
-    width: 480px;
-  }
+  /* padding: 0;
+  margin: 0 auto; */
 `;
 
 export const TextTask = styled.div`
@@ -43,6 +37,8 @@ export const TextTask = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  /* width: 100%; */
   background-color: ${props => props.color};
   border-radius: 25px;
   border: 1px solid #2196f3;
@@ -51,7 +47,7 @@ export const TextTask = styled.div`
 `;
 export const Text = styled.p`
   display: inline-block;
-  width: 220px;
+  width: 248px;
   font-size: 16px;
   font-weight: 500;
   color: #2c387e;
@@ -59,15 +55,15 @@ export const Text = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 0;
-  padding: 0 16px;
+  padding: 0 0 0 16px;
   @media screen and (min-width: 380px) {
-    min-width: 300px;
+    width: 300px;
   }
   @media screen and (min-width: 440px) {
-    min-width: 360px;
+    width: 360px;
   }
   @media screen and (min-width: 500px) {
-    width: 420px;
+    width: 404px;
   }
 `;
 

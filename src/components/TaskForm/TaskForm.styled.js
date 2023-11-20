@@ -4,6 +4,8 @@ export const FormTask = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 300px;
+  margin: 0 auto;
   padding: 0;
   @media screen and (min-width: 380px) {
     min-width: 360px;
@@ -19,7 +21,7 @@ export const InputForm = styled.input`
   display: flex;
   background-color: #2196f3;
   color: white;
-  min-width: 220px;
+  width: 248px;
   height: 44px;
   font-size: 16px;
   font-weight: 500;
@@ -27,13 +29,13 @@ export const InputForm = styled.input`
   border-top-left-radius: 25px;
   border: 1px solid #2196f3;
   outline: #2196f3;
-  padding: 0 16px;
-  margin: 0;
+  padding: 0 0 0 16px;
+  margin: 0 auto;
   @media screen and (min-width: 380px) {
-    min-width: 300px;
+    width: 300px;
   }
   @media screen and (min-width: 440px) {
-    min-width: 360px;
+    width: 360px;
   }
   @media screen and (min-width: 500px) {
     width: 420px;
@@ -47,7 +49,7 @@ export const BtnForm = styled.button`
   border: 1px solid #2196f3;
   outline: #2196f3;
   width: 60px;
-  height: 46px;
+  height: 45px;
   padding: 0;
   cursor: pointer;
   color: #1769aa;

@@ -2,10 +2,20 @@ import styled from 'styled-components';
 
 export const WrapUserMenu = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: 230px;
   gap: 10px;
+  margin: 0 0 0 30px;
+  @media screen and (min-width: 380px) {
+    margin: 0 0 0 60px;
+  }
+  @media screen and (min-width: 440px) {
+    margin: 0 0 0 40px;
+  }
+  @media screen and (min-width: 500px) {
+    margin: 0 0 0 80px;
+  }
 `;
 
 export const BtnAll = styled.button`
@@ -21,10 +31,10 @@ export const BtnAll = styled.button`
   cursor: pointer;
   padding: 0;
   margin: 0;
-  @media screen and (min-width: 440px) {
+  /* @media screen and (min-width: 440px) {
     width: 40px;
     height: 40px;
-  }
+  } */
 `;
 export const BtnRed = styled.button`
   display: block;
@@ -39,10 +49,10 @@ export const BtnRed = styled.button`
   cursor: pointer;
   padding: 0;
   margin: 0;
-  @media screen and (min-width: 440px) {
+  /* @media screen and (min-width: 440px) {
     width: 40px;
     height: 40px;
-  }
+  } */
 `;
 export const BtnYellow = styled.button`
   display: block;
@@ -57,10 +67,10 @@ export const BtnYellow = styled.button`
   cursor: pointer;
   padding: 0;
   margin: 0;
-  @media screen and (min-width: 440px) {
+  /* @media screen and (min-width: 440px) {
     width: 40px;
     height: 40px;
-  }
+  } */
 `;
 export const BtnGreen = styled.button`
   display: block;
@@ -75,10 +85,10 @@ export const BtnGreen = styled.button`
   cursor: pointer;
   padding: 0;
   margin: 0;
-  @media screen and (min-width: 440px) {
+  /* @media screen and (min-width: 440px) {
     width: 40px;
     height: 40px;
-  }
+  } */
 `;
 
 export const BtnLogOut = styled.button`
@@ -95,10 +105,10 @@ export const BtnLogOut = styled.button`
     height: 32px;
     fill: white;
   }
-  @media screen and (min-width: 440px) {
+  /* @media screen and (min-width: 440px) {
     .icon-out {
       width: 36px;
       height: 36px;
     }
-  }
+  } */
 `;

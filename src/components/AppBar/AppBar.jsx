@@ -38,3 +38,34 @@
 
 //   return <div>{isMobile ? <BurgerMenu /> : <Navigation />}</div>;
 // }
+
+// import React, { useState } from 'react';
+
+// function Example() {
+//   const [isHidden, setIsHidden] = useState(false);
+
+//   const handleClick = () => {
+//     setIsHidden(true);
+//   };
+
+//   return (
+//     <div>
+//       <button onClick={() => setIsHidden(!isHidden)}>
+//         {isHidden ? 'Показать' : 'Скрыть'}
+//       </button>
+//       {!isHidden && (
+//         <div>
+//           <a href="#" onClick={handleClick}>
+//             Ссылка 1
+//           </a>
+//           <a href="#" onClick={handleClick}>
+//             Ссылка 2
+//           </a>
+//           <a href="#" onClick={handleClick}>
+//             Ссылка 3
+//           </a>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
