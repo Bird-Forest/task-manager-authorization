@@ -13,7 +13,7 @@ export const Header = styled.header`
   /* min-width: 320px; */
   width: 100%;
   height: 64px;
-  padding: 0 20px;
+  padding: 0;
   margin: 0 auto;
   @media screen and (min-width: 380px) {
     min-width: 360px;
@@ -22,15 +22,17 @@ export const Header = styled.header`
     min-width: 420px;
   }
   @media screen and (min-width: 500px) {
-    width: 480px;
+    width: 520px;
   }
 `;
 
 export const NavMenu = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 0 auto;
+  padding: 0;
   .navigate {
     display: none;
     visibility: hidden;
@@ -49,7 +51,7 @@ export const NavMenu = styled.div`
     .navigate {
       display: block;
       visibility: visible;
-      margin-left: 15px;
+      margin-left: 10px;
     }
   }
   @media screen and (min-width: 500px) {
@@ -89,7 +91,7 @@ export const WrapMenu = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: #4dabf5;
   margin: 0;
@@ -104,5 +106,9 @@ export const WrapMenu = styled.div`
     &.active {
       color: #1769aa;
     }
+  }
+  @media screen and (min-width: 440px) {
+    display: none;
+    visibility: hidden;
   }
 `;
