@@ -69,3 +69,38 @@
 //     </div>
 //   );
 // }
+
+// <NavMenu>
+//   <BtnMenu onClick={() => setIsHidden(!isHidden)}>
+//     <RiMenuSearchFill className="icon-menu" />
+//   </BtnMenu>
+//   {!isHidden && (
+//     <WrapMenu
+//       style={{
+//         transform: isHidden ? 'translate(0, -100%)' : 'translate(0, 0)',
+//       }}
+//     >
+//       <NavLink to="/" className="navigate-menu" onClick={handleClick}>
+//         Home
+//       </NavLink>
+//       <NavLink to="/tasks" className="navigate-menu" onClick={handleClick}>
+//         Tasks
+//       </NavLink>
+//     </WrapMenu>
+//   )}
+//   {isLoggedIn ? (
+//     <>
+//       <NavLink to="/" className="navigate">
+//         Home
+//       </NavLink>
+//       <NavLink to="/tasks" className="navigate">
+//         Tasks
+//       </NavLink>
+//       <UserMenu />
+//     </>
+//   ) : (
+//     <>
+//       <AuthNav />
+//     </>
+//   )}
+// </NavMenu>;

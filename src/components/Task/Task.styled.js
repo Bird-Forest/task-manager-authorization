@@ -45,7 +45,7 @@ export const TextTask = styled.div`
   padding: 0;
   margin: 0 auto;
 `;
-export const Text = styled.p`
+export const Text = styled.h4`
   display: inline-block;
   width: 248px;
   font-size: 16px;

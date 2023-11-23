@@ -83,6 +83,7 @@ export const registerThunk = createAsyncThunk(
       console.log(res.data);
       return res.data;
     } catch (error) {
+      // console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -97,6 +98,7 @@ export const loginThunk = createAsyncThunk(
       console.log(res.data);
       return res.data; // ЦЕ БУДЕ ЗАПИСАНО В ЕКШИН ПЕЙЛОАД
     } catch (error) {
+      // console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

@@ -7,7 +7,6 @@ export default function RegisterPage() {
   return (
     <WrapRegisterPage>
       <TitleRegisterPage>Registration</TitleRegisterPage>
-
       <RegisterForm />
     </WrapRegisterPage>
   );

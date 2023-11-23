@@ -1,5 +1,14 @@
-import { NavLink } from 'react-router-dom';
-import { BtnMenu, Header, NavMenu, WrapMenu } from './Navigation.styled';
+// import { NavLink } from 'react-router-dom';
+import {
+  AuthMenu,
+  BtnMenu,
+  HeaderWrap,
+  LogMenu,
+  MobileMenu,
+  StyledNavLink,
+  TabletMenu,
+  WrapMenu,
+} from './Navigation.styled';
 import React, { useState } from 'react';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { AuthNav } from 'components/AuthNav/AuthNav';
@@ -15,55 +24,42 @@ export const Navigation = () => {
   };
 
   return (
-    <Header>
-      <NavMenu>
-        <BtnMenu onClick={() => setIsHidden(!isHidden)}>
-          <RiMenuSearchFill className="icon-menu" />
-          {isHidden ? (
-            <WrapMenu className="hide" />
-          ) : (
-            <WrapMenu className="show" />
-          )}
-        </BtnMenu>
-        {!isHidden && (
-          <WrapMenu>
-            <NavLink to="/" className="navigate-menu" onClick={handleClick}>
-              Home
-            </NavLink>
-            <NavLink
-              to="/tasks"
-              className="navigate-menu"
-              onClick={handleClick}
-            >
-              Tasks
-            </NavLink>
-          </WrapMenu>
-        )}
-        <NavLink to="/" className="navigate">
-          Home
-        </NavLink>
-        {isLoggedIn ? (
-          <>
-            <NavLink to="/tasks" className="navigate">
-              Tasks
-            </NavLink>
-            <UserMenu />
-          </>
-        ) : (
-          <>
-            <AuthNav />
-          </>
-        )}
-      </NavMenu>
-    </Header>
+    <HeaderWrap>
+      {isLoggedIn ? (
+        <LogMenu>
+          <MobileMenu>
+            <BtnMenu onClick={() => setIsHidden(!isHidden)}>
+              <RiMenuSearchFill className="icon-menu" />
+            </BtnMenu>
+            {!isHidden && (
+              <WrapMenu
+                style={{
+                  transform: isHidden
+                    ? 'translate(0, -100%)'
+                    : 'translate(0, 0)',
+                }}
+              >
+                <StyledNavLink to="/" onClick={handleClick}>
+                  Home
+                </StyledNavLink>
+                <StyledNavLink to="/tasks" onClick={handleClick}>
+                  Tasks
+                </StyledNavLink>
+              </WrapMenu>
+            )}
+          </MobileMenu>
+          <TabletMenu>
+            <StyledNavLink to="/">Home</StyledNavLink>
+            <StyledNavLink to="/tasks">Tasks</StyledNavLink>
+          </TabletMenu>
+          <UserMenu />
+        </LogMenu>
+      ) : (
+        <AuthMenu>
+          <StyledNavLink to="/">Home</StyledNavLink>
+          <AuthNav />
+        </AuthMenu>
+      )}
+    </HeaderWrap>
   );
 };
-
-//  {
-//    /* <NavLink to="/register" className="navigate">
-//               Register
-//             </NavLink>
-//             <NavLink to="/login" className="navigate">
-//               Login
-//             </NavLink> */
-//  }

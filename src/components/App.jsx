@@ -10,6 +10,7 @@ import { refreshThunk } from 'redux/operations';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Container } from './App.styled';
+import Loading from './Loader/Loader';
 // import Layout from './Layout';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
@@ -58,7 +59,7 @@ export const App = () => {
   ) : (
     <Container>
       <Navigation />
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           {appRoutes.map(({ path, element }) => (
             <Route key={path} path={path} element={element} />

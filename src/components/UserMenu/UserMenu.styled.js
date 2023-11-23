@@ -6,7 +6,7 @@ export const WrapUserMenu = styled.div`
   align-items: center;
   width: 230px;
   gap: 10px;
-  margin: 0 0 0 30px;
+  margin: 0;
   @media screen and (min-width: 380px) {
     margin: 0 0 0 60px;
   }

@@ -5,10 +5,10 @@ export const AuthNav = () => {
   return (
     <WrapAuthNav>
       <NavLink to="/register" className="navigate">
-        Register
+        SignUp
       </NavLink>
       <NavLink to="/login" className="navigate">
-        Log In
+        SignIn
       </NavLink>
     </WrapAuthNav>
   );

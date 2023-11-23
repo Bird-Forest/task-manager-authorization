@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Header = styled.header`
+export const HeaderWrap = styled.header`
   position: fixed;
   z-index: 90;
   top: 0;
@@ -10,11 +11,21 @@ export const Header = styled.header`
   justify-content: center;
   align-items: center;
   background-color: #1769aa;
-  /* min-width: 320px; */
   width: 100%;
   height: 64px;
   padding: 0;
   margin: 0 auto;
+  @media screen and (min-width: 500px) {
+    width: 520px;
+  }
+`;
+export const AuthMenu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 300px;
+  padding: 0 10px;
+  /* margin: 0 auto; */
   @media screen and (min-width: 380px) {
     min-width: 360px;
   }
@@ -22,11 +33,88 @@ export const Header = styled.header`
     min-width: 420px;
   }
   @media screen and (min-width: 500px) {
-    width: 520px;
+    width: 480px;
   }
 `;
 
-export const NavMenu = styled.div`
+export const LogMenu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 300px;
+  /* padding: 0 10px; */
+  /* margin: 0 auto; */
+  @media screen and (min-width: 380px) {
+    min-width: 360px;
+  }
+  @media screen and (min-width: 440px) {
+    min-width: 420px;
+  }
+  @media screen and (min-width: 500px) {
+    width: 480px;
+    /* padding: 0 20px; */
+  }
+`;
+export const MobileMenu = styled.div`
+  display: block;
+  @media screen and (min-width: 440px) {
+    display: none;
+  }
+`;
+export const BtnMenu = styled.button`
+  display: block;
+  background-color: #1769aa;
+  border: #1769aa;
+  width: 36px;
+  height: 36px;
+  margin: 0 0 0 10px;
+  padding: 0;
+  .icon-menu {
+    background-color: #1769aa;
+    width: 36px;
+    height: 36px;
+    fill: white;
+  }
+  @media screen and (min-width: 440px) {
+    display: none;
+  }
+`;
+export const TabletMenu = styled.div`
+  display: none;
+  @media screen and (min-width: 440px) {
+    display: block;
+  }
+`;
+export const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin-right: 20px;
+  &.active {
+    color: #2196f3;
+  }
+`;
+export const WrapMenu = styled.div`
+  position: absolute;
+  top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #4dabf5;
+  margin: 0;
+  padding: 0;
+  @media screen and (min-width: 440px) {
+    display: none;
+    visibility: hidden;
+  }
+`;
+
+export const NavMenuLink = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +132,6 @@ export const NavMenu = styled.div`
       color: #2196f3;
     }
   }
-
   @media screen and (min-width: 440px) {
     /* justify-content: center; */
     width: 440px;
@@ -56,59 +143,5 @@ export const NavMenu = styled.div`
   }
   @media screen and (min-width: 500px) {
     width: 480px;
-  }
-`;
-
-export const BtnMenu = styled.button`
-  display: block;
-  background-color: #1769aa;
-  border: #1769aa;
-  width: 36px;
-  height: 36px;
-  margin: 0 0 0 10px;
-  padding: 0;
-  .icon-menu {
-    background-color: #1769aa;
-    width: 36px;
-    height: 36px;
-    fill: white;
-  }
-
-  @media screen and (min-width: 440px) {
-    display: none;
-  }
-`;
-export const WrapMenu = styled.div`
-  position: absolute;
-  top: 64px;
-  &.hide {
-    left: -100%;
-  }
-  &.show {
-    left: 0;
-  }
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  background-color: #4dabf5;
-  margin: 0;
-  padding: 0;
-  transition: transform;
-  .navigate-menu {
-    margin: 20px auto;
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: 700;
-    color: white;
-    &.active {
-      color: #1769aa;
-    }
-  }
-  @media screen and (min-width: 440px) {
-    display: none;
-    visibility: hidden;
   }
 `;
